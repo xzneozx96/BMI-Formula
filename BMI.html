@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="BMI.css">
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <div class="container">
+            
+            <div class="cont">   
+                <h1>Bảng tính chỉ số cân năng BMI dành cho người Châu Á</h1>
+                <p style="text-align: center;">Hãy nhập cân nặng và chiều cao của bạn vào 2 ô bên dưới rồi bấm nút để phép màu hiện ra</p>
+                <input id="weight" type="text" placeholder="Can nang cua ban (kg)">
+                <input id="height" type="text" placeholder="Chieu cao cua ban (m)">
+                <button type="button" onclick="myFunction()">BMI result</button>
+                <p id="demo"></p>
+                <p id="demo1"></p>
+                <p id="demo2"></p>
+                <p id="demo3"></p>
+            </div>
+        <script>
+            function myFunction() {
+                var x,y,a,b,c,d;
+                x = document.getElementById('weight').value; 
+                y = document.getElementById('height').value;
+                var a = x/(y*y);
+                if (a < 18.5) {
+                    document.getElementById("demo").innerHTML = "Bạn gầy quá rồi. Nhớ ăn thật nhiều vào nhé !"
+                }
+                else if (a>=18.5 && a<=22.9) {
+                    document.getElementById("demo").innerHTML = "Bạn có một body thât hoàn hảo. Cứ thế mà phát huy !"
+                }
+                else if (a>=23 && a<=24.9) {
+                    document.getElementById("demo").innerHTML = "Dạo nì bạn hơi tăng cân thì phải. Ăn uống tém tém lại nhé !"
+                }
+                else if (a>=25 && a<=29.9) {
+                    document.getElementById("demo").innerHTML = "Béo phì cấp độ 1 cmnr"
+                }
+                else if (a>=30 && a<40) {
+                    document.getElementById("demo").innerHTML = "Béo quá lú cmnr đấy"
+                }
+                else if (a>=40) {
+                    document.getElementById("demo").innerHTML = "Chào mừng bạn gia nhập đôi tuyển SUMO quốc gia"
+                }
+                b = (y*100-100)*9/10;
+                c = y*100-100;
+                d = (y*100-100)*8/10;
+                document.getElementById("demo1").innerHTML = "Bạn mà được  " + Math.round(b) + " cân thì thật là perfect !"
+                document.getElementById("demo2").innerHTML = "Nếu không muốn bị chê là béo thì chỉ nên ăn đến khi được " + c + " cân thôi nhé !"
+                document.getElementById("demo3").innerHTML = "Nếu không muốn chết vì suy dinh dưỡng thì ăn kiêng đến khi được " + Math.round(d) + " cân thôi nhé !"   
+            }  
+        </script>
+    </body>
+</html>
